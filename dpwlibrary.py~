@@ -1,0 +1,30 @@
+#wordsearch
+#Rick Kosse
+
+
+def dpwlibrary():
+    """ takes the dpw file and splits it on the slash. The first and seconde element are the words, and the fourh and fifth are the syllables  
+        the lengt of the syllables will be returned among with the word in a library"""
+    dictonary = {}
+    lineslist =[]
+    infile = open("dpw.cd", "r")
+    for lines in infile:
+        lineslist = lines.split("\\")
+        keystring = lineslist[4:5]
+        lineslist = lineslist[1:2]
+    
+        for key in keystring:
+            keys = key.rsplit("[")
+            keylist = keys[1:]
+            finalkey = (len (keylist))
+        
+            for word in lineslist:
+                dictonary[word] = dictonary.get(word, finalkey)
+
+    return dictonary
+
+
+main()
+
+
+
